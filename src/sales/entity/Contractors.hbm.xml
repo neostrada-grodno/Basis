@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25.03.2014 13:42:31 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="sales.entity.Contractors" table="contractors" catalog="sales">
+        <id name="code" type="java.lang.Integer">
+            <column name="code" />
+            <generator class="identity" />
+        </id>
+        <property name="contractNumber" type="string">
+            <column name="contractNumber" length="65535" />
+        </property>
+        <property name="contractDate" type="date">
+            <column name="contractDate" length="10" />
+        </property>
+        <property name="name" type="string">
+            <column name="name" length="65535" />
+        </property>
+        <property name="address" type="string">
+            <column name="address" length="65535" />
+        </property>
+        <property name="unloadingAddress" type="string">
+            <column name="unloadingAddress" length="65535" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="65535" />
+        </property>
+        <property name="account" type="string">
+            <column name="account" length="65535" />
+        </property>
+        <property name="bank" type="java.lang.Integer">
+            <column name="bank" />
+        </property>
+        <property name="unt" type="string">
+            <column name="unt" length="65535" />
+        </property>
+        <property name="head" type="string">
+            <column name="head" length="65535" />
+        </property>
+        <property name="headPositionName" type="string">
+            <column name="headPositionName" length="65535" />
+        </property>
+        <property name="primaryDocument" type="string">
+            <column name="primaryDocument" length="65535" />
+        </property>
+        <property name="note" type="string">
+            <column name="note" length="65535" />
+        </property>
+        <property name="locked" type="int">
+            <column name="locked" not-null="true" />
+        </property>
+        <property name="active" type="int">
+            <column name="active" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

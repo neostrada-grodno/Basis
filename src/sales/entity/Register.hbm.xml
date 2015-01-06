@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25.03.2014 13:42:31 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="sales.entity.Register" table="register" catalog="sales">
+        <id name="code" type="java.lang.Integer">
+            <column name="code" />
+            <generator class="identity" />
+        </id>
+        <property name="datetime" type="timestamp">
+            <column name="datetime" length="19" />
+        </property>
+        <property name="documentType" type="java.lang.Integer">
+            <column name="documentType" />
+        </property>
+        <property name="number" type="string">
+            <column name="number" length="65535" />
+        </property>
+        <property name="supplement" type="string">
+            <column name="supplement" length="65535" />
+        </property>
+        <property name="employeeCode" type="java.lang.Integer">
+            <column name="employeeCode" />
+        </property>
+        <property name="amount" type="java.lang.Integer">
+            <column name="amount" />
+        </property>
+        <property name="paymentType" type="string">
+            <column name="paymentType" length="65535" />
+        </property>
+        <property name="corrAccount" type="string">
+            <column name="corrAccount" length="65535" />
+        </property>
+        <property name="announcementNumber" type="string">
+            <column name="announcementNumber" length="65535" />
+        </property>
+        <property name="reportingCode" type="string">
+            <column name="reportingCode" length="65535" />
+        </property>
+        <property name="page" type="string">
+            <column name="page" length="65535" />
+        </property>
+        <property name="locked" type="int">
+            <column name="locked" not-null="true" />
+        </property>
+        <property name="active" type="java.lang.Integer">
+            <column name="active" />
+        </property>
+    </class>
+</hibernate-mapping>

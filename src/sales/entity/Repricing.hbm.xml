@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25.03.2014 13:42:31 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="sales.entity.Repricing" table="repricing" catalog="sales">
+        <id name="code" type="java.lang.Integer">
+            <column name="code" />
+            <generator class="identity" />
+        </id>
+        <property name="datetime" type="timestamp">
+            <column name="datetime" length="19" />
+        </property>
+        <property name="number" type="string">
+            <column name="number" length="65535" />
+        </property>
+        <property name="locked" type="int">
+            <column name="locked" not-null="true" />
+        </property>
+        <property name="active" type="int">
+            <column name="active" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

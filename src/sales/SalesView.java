@@ -1,0 +1,1015 @@
+/*
+ * SalesView.java
+ */
+package sales;
+
+import sales.interfaces.IInit;
+import java.awt.Component;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+import sales.modules.ModulesView;
+import sales.catalogs.NomenclatureView;
+import sales.catalogs.EmployeeView;
+import sales.reports.GoodsbookReport;
+import sales.salesreport.SalesReportView;
+import sales.repricing.RepricingView;
+import sales.register.RegisterView;
+import sales.outcoming.OutcomingView;
+import sales.incoming.IncomingView;
+import org.jdesktop.application.Action;
+import org.jdesktop.application.SingleFrameApplication;
+import org.jdesktop.application.FrameView;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.jms.Connection;
+import javax.jms.Destination;
+import javax.jms.MessageConsumer;
+import javax.jms.Session;
+import javax.swing.JDesktopPane;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JTabbedPane;
+import javax.swing.event.ChangeEvent;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
+import org.apache.activemq.ActiveMQConnectionFactory;
+import org.apache.log4j.Logger;
+import sales.catalogs.BanksView;
+import sales.catalogs.ConstantsView;
+import sales.catalogs.ContractorsView;
+import sales.catalogs.ServicesView;
+import sales.catalogs.SuppliersView;
+import sales.catalogs.TransportsView;
+import sales.incoming.IncomingDocView;
+import sales.interop.CommandListener;
+import sales.inventory.InventoryDocView;
+import sales.inventory.InventoryView;
+import sales.outcoming.OutcomingDocView;
+import sales.paymentorder.PaymentOrderView;
+import sales.register.RegisterDocView;
+import sales.reports.BalanceReport;
+import sales.reports.ProfitReport;
+import sales.reports.Reconciliation;
+import sales.reports.SaledGoodsReport;
+import sales.repricing.RepricingDocView;
+import sales.salesreport.SalesReportDocView;
+import sales.service.ServiceView;
+import sales.util.Init;
+import sales.util.Util;
+
+public class SalesView extends FrameView implements IInit {
+    
+    private static final String ACTIVEMQ_URI = "tcp://localhost:61616";
+    private static final String ACTIVEMQ_DESTINATION = "SalesQueue";
+
+    private static Logger logger = Logger.getLogger(SalesApp.class.getName());
+    private static Connection connection;
+    private static Session session;
+    private static MessageConsumer consumer;
+
+    public SalesView(SingleFrameApplication app) {
+        super(app);
+
+        initComponents();
+
+        getFrame().addWindowListener(new MyWindowListener());
+        getFrame().addComponentListener(new ComponentAdapter() {
+
+            @Override
+            public void componentResized(ComponentEvent e) {
+                workplace.setSize(jdp.getWidth(), jdp.getHeight());
+            }
+        });
+
+        jtpWindows.addTab("Рабочий стол", null);
+
+        status = false;
+
+        getFrame().setExtendedState(JFrame.MAXIMIZED_BOTH);
+
+    }
+
+    public void startListener() {
+
+        try {
+            
+            ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory(ACTIVEMQ_URI);         
+            connection = connectionFactory.createConnection();
+            connection.start();
+            session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+            Destination destination = session.createQueue(ACTIVEMQ_DESTINATION);
+            consumer = session.createConsumer(destination);
+            consumer.setMessageListener(new CommandListener(workplace));
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void stopListener() {
+
+        try {
+            consumer.close();
+            session.close();
+            connection.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private class MyWindowListener extends WindowAdapter implements IInit {
+
+        private boolean status;
+
+        @Override
+        public void setStatus(boolean status) {
+            this.status = status;
+        }
+
+        @Override
+        public void windowOpened(WindowEvent e) {
+            status = false;
+            Init init = new Init();
+            init.init(this, null);
+            if (!status) {
+                JOptionPane.showMessageDialog(null, "До регистрации создание некоторых документов будет ограниченно 10!", "Регистрация", JOptionPane.PLAIN_MESSAGE);
+            }
+        }
+    }
+
+    @Action
+    public void showAboutBox() {
+        if (aboutBox == null) {
+            JFrame mainFrame = SalesApp.getApplication().getMainFrame();
+            aboutBox = new SalesAboutBox(mainFrame);
+            aboutBox.setLocationRelativeTo(mainFrame);
+        }
+        SalesApp.getApplication().show(aboutBox);
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        mainPanel = new javax.swing.JPanel();
+        jdp = new javax.swing.JDesktopPane();
+        jtpWindows = new javax.swing.JTabbedPane();
+        jbIncoming = new javax.swing.JButton();
+        jbOutcoming = new javax.swing.JButton();
+        jbInRegister = new javax.swing.JButton();
+        jbOutRegister = new javax.swing.JButton();
+        jbInventory = new javax.swing.JButton();
+        jbRepricing = new javax.swing.JButton();
+        jbSalesReport = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        menuBar = new javax.swing.JMenuBar();
+        javax.swing.JMenu fileMenu = new javax.swing.JMenu();
+        javax.swing.JMenuItem exitMenuItem = new javax.swing.JMenuItem();
+        jmCatalogs = new javax.swing.JMenu();
+        jmiConstants = new javax.swing.JMenuItem();
+        jmiBanks = new javax.swing.JMenuItem();
+        jmiNomenclature = new javax.swing.JMenuItem();
+        jmiContractors = new javax.swing.JMenuItem();
+        jmiSuppliers = new javax.swing.JMenuItem();
+        jmiEmployee = new javax.swing.JMenuItem();
+        jmiTransports = new javax.swing.JMenuItem();
+        jmiServices = new javax.swing.JMenuItem();
+        jmJournals = new javax.swing.JMenu();
+        jmiIncomings = new javax.swing.JMenuItem();
+        jmiOutcomings = new javax.swing.JMenuItem();
+        jmiRepricings = new javax.swing.JMenuItem();
+        jmiRegisterJournal = new javax.swing.JMenuItem();
+        jmiPaymentOrders = new javax.swing.JMenuItem();
+        jmiInventory = new javax.swing.JMenuItem();
+        jmiServiceJournal = new javax.swing.JMenuItem();
+        jmReports = new javax.swing.JMenu();
+        jmiBalance = new javax.swing.JMenuItem();
+        jmiSalesBook = new javax.swing.JMenuItem();
+        jmiSalesReportJournal = new javax.swing.JMenuItem();
+        jmiReconcillation = new javax.swing.JMenuItem();
+        jmiSaledGoodsReport = new javax.swing.JMenuItem();
+        jmiProfit = new javax.swing.JMenuItem();
+        jmService = new javax.swing.JMenu();
+        jmiFixDatabase = new javax.swing.JMenuItem();
+        jmiModules = new javax.swing.JMenuItem();
+        jmiServer = new javax.swing.JMenuItem();
+        jmiSearch = new javax.swing.JMenuItem();
+        javax.swing.JMenu helpMenu = new javax.swing.JMenu();
+        javax.swing.JMenuItem aboutMenuItem = new javax.swing.JMenuItem();
+
+        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance().getContext().getResourceMap(SalesView.class);
+        mainPanel.setBackground(resourceMap.getColor("mainPanel.background")); // NOI18N
+        mainPanel.setName("mainPanel"); // NOI18N
+
+        jdp.setBackground(resourceMap.getColor("jdp.background")); // NOI18N
+        jdp.setName("jdp"); // NOI18N
+
+        jtpWindows.setBackground(resourceMap.getColor("jtpWindows.background")); // NOI18N
+        jtpWindows.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
+        jtpWindows.setName("jtpWindows"); // NOI18N
+        jtpWindows.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jtpWindowsStateChanged(evt);
+            }
+        });
+
+        javax.swing.ActionMap actionMap = org.jdesktop.application.Application.getInstance().getContext().getActionMap(SalesView.class, this);
+        jbIncoming.setAction(actionMap.get("showIncoming")); // NOI18N
+        jbIncoming.setText(resourceMap.getString("jbIncoming.text")); // NOI18N
+        jbIncoming.setName("jbIncoming"); // NOI18N
+
+        jbOutcoming.setAction(actionMap.get("showOutcoming")); // NOI18N
+        jbOutcoming.setText(resourceMap.getString("jbOutcoming.text")); // NOI18N
+        jbOutcoming.setName("jbOutcoming"); // NOI18N
+
+        jbInRegister.setAction(actionMap.get("showInRegister")); // NOI18N
+        jbInRegister.setText(resourceMap.getString("jbInRegister.text")); // NOI18N
+        jbInRegister.setName("jbInRegister"); // NOI18N
+
+        jbOutRegister.setAction(actionMap.get("showOutRegister")); // NOI18N
+        jbOutRegister.setText(resourceMap.getString("jbOutRegister.text")); // NOI18N
+        jbOutRegister.setName("jbOutRegister"); // NOI18N
+
+        jbInventory.setAction(actionMap.get("showInventory")); // NOI18N
+        jbInventory.setText(resourceMap.getString("jbInventory.text")); // NOI18N
+        jbInventory.setName("jbInventory"); // NOI18N
+
+        jbRepricing.setAction(actionMap.get("showRepricing")); // NOI18N
+        jbRepricing.setText(resourceMap.getString("jbRepricing.text")); // NOI18N
+        jbRepricing.setName("jbRepricing"); // NOI18N
+
+        jbSalesReport.setAction(actionMap.get("showSalesReport")); // NOI18N
+        jbSalesReport.setText(resourceMap.getString("jbSalesReport.text")); // NOI18N
+        jbSalesReport.setName("jbSalesReport"); // NOI18N
+
+        jSeparator1.setName("jSeparator1"); // NOI18N
+
+        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
+        mainPanel.setLayout(mainPanelLayout);
+        mainPanelLayout.setHorizontalGroup(
+            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jdp, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1065, Short.MAX_VALUE)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 1065, Short.MAX_VALUE)
+                    .addComponent(jtpWindows, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1065, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mainPanelLayout.createSequentialGroup()
+                        .addComponent(jbIncoming)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jbOutcoming)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jbInRegister)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jbOutRegister)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jbInventory)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jbRepricing)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jbSalesReport)))
+                .addContainerGap())
+        );
+        mainPanelLayout.setVerticalGroup(
+            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainPanelLayout.createSequentialGroup()
+                .addComponent(jtpWindows, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jdp, javax.swing.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbIncoming)
+                    .addComponent(jbOutcoming)
+                    .addComponent(jbInRegister)
+                    .addComponent(jbOutRegister)
+                    .addComponent(jbInventory)
+                    .addComponent(jbRepricing)
+                    .addComponent(jbSalesReport))
+                .addContainerGap())
+        );
+
+        menuBar.setBackground(resourceMap.getColor("menuBar.background")); // NOI18N
+        menuBar.setMinimumSize(new java.awt.Dimension(0, 21));
+        menuBar.setName("menuBar"); // NOI18N
+        menuBar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuBarMouseClicked(evt);
+            }
+        });
+
+        fileMenu.setAction(actionMap.get("exit")); // NOI18N
+        fileMenu.setBackground(resourceMap.getColor("fileMenu.background")); // NOI18N
+        fileMenu.setText(resourceMap.getString("fileMenu.text")); // NOI18N
+        fileMenu.setName("fileMenu"); // NOI18N
+
+        exitMenuItem.setAction(actionMap.get("quit")); // NOI18N
+        exitMenuItem.setText(resourceMap.getString("exitMenuItem.text")); // NOI18N
+        exitMenuItem.setName("exitMenuItem"); // NOI18N
+        fileMenu.add(exitMenuItem);
+
+        menuBar.add(fileMenu);
+
+        jmCatalogs.setBackground(resourceMap.getColor("jmCatalogs.background")); // NOI18N
+        jmCatalogs.setText(resourceMap.getString("jmCatalogs.text")); // NOI18N
+        jmCatalogs.setName("jmCatalogs"); // NOI18N
+
+        jmiConstants.setAction(actionMap.get("showConstants")); // NOI18N
+        jmiConstants.setText(resourceMap.getString("jmiConstants.text")); // NOI18N
+        jmiConstants.setName("jmiConstants"); // NOI18N
+        jmCatalogs.add(jmiConstants);
+
+        jmiBanks.setAction(actionMap.get("showBanks")); // NOI18N
+        jmiBanks.setText(resourceMap.getString("jmiBanks.text")); // NOI18N
+        jmiBanks.setName("jmiBanks"); // NOI18N
+        jmCatalogs.add(jmiBanks);
+
+        jmiNomenclature.setAction(actionMap.get("showNomenclature")); // NOI18N
+        jmiNomenclature.setText(resourceMap.getString("jmiNomenclature.text")); // NOI18N
+        jmiNomenclature.setName("jmiNomenclature"); // NOI18N
+        jmCatalogs.add(jmiNomenclature);
+
+        jmiContractors.setAction(actionMap.get("showContractors")); // NOI18N
+        jmiContractors.setText(resourceMap.getString("jmiContractors.text")); // NOI18N
+        jmiContractors.setName("jmiContractors"); // NOI18N
+        jmCatalogs.add(jmiContractors);
+
+        jmiSuppliers.setAction(actionMap.get("showSuppliers")); // NOI18N
+        jmiSuppliers.setText(resourceMap.getString("jmiSuppliers.text")); // NOI18N
+        jmiSuppliers.setName("jmiSuppliers"); // NOI18N
+        jmCatalogs.add(jmiSuppliers);
+
+        jmiEmployee.setAction(actionMap.get("showEmployee")); // NOI18N
+        jmiEmployee.setText(resourceMap.getString("jmiEmployee.text")); // NOI18N
+        jmiEmployee.setName("jmiEmployee"); // NOI18N
+        jmCatalogs.add(jmiEmployee);
+
+        jmiTransports.setAction(actionMap.get("showTransports")); // NOI18N
+        jmiTransports.setText(resourceMap.getString("jmiTransports.text")); // NOI18N
+        jmiTransports.setName("jmiTransports"); // NOI18N
+        jmCatalogs.add(jmiTransports);
+
+        jmiServices.setAction(actionMap.get("showServices")); // NOI18N
+        jmiServices.setText(resourceMap.getString("jmiServices.text")); // NOI18N
+        jmiServices.setName("jmiServices"); // NOI18N
+        jmCatalogs.add(jmiServices);
+
+        menuBar.add(jmCatalogs);
+
+        jmJournals.setBackground(resourceMap.getColor("jmJournals.background")); // NOI18N
+        jmJournals.setText(resourceMap.getString("jmJournals.text")); // NOI18N
+        jmJournals.setName("jmJournals"); // NOI18N
+
+        jmiIncomings.setAction(actionMap.get("showIncomingJournal")); // NOI18N
+        jmiIncomings.setText(resourceMap.getString("jmiIncomings.text")); // NOI18N
+        jmiIncomings.setName("jmiIncomings"); // NOI18N
+        jmJournals.add(jmiIncomings);
+
+        jmiOutcomings.setAction(actionMap.get("showOutcomingJournal")); // NOI18N
+        jmiOutcomings.setText(resourceMap.getString("jmiOutcomings.text")); // NOI18N
+        jmiOutcomings.setName("jmiOutcomings"); // NOI18N
+        jmJournals.add(jmiOutcomings);
+
+        jmiRepricings.setAction(actionMap.get("showRepricingJournal")); // NOI18N
+        jmiRepricings.setText(resourceMap.getString("jmiRepricings.text")); // NOI18N
+        jmiRepricings.setName("jmiRepricings"); // NOI18N
+        jmJournals.add(jmiRepricings);
+
+        jmiRegisterJournal.setAction(actionMap.get("showRegisterJournal")); // NOI18N
+        jmiRegisterJournal.setText(resourceMap.getString("jmiRegisterJournal.text")); // NOI18N
+        jmiRegisterJournal.setName("jmiRegisterJournal"); // NOI18N
+        jmJournals.add(jmiRegisterJournal);
+
+        jmiPaymentOrders.setAction(actionMap.get("showPaymentOrderJournal")); // NOI18N
+        jmiPaymentOrders.setText(resourceMap.getString("jmiPaymentOrders.text")); // NOI18N
+        jmiPaymentOrders.setName("jmiPaymentOrders"); // NOI18N
+        jmJournals.add(jmiPaymentOrders);
+
+        jmiInventory.setAction(actionMap.get("showInventoryJournal")); // NOI18N
+        jmiInventory.setText(resourceMap.getString("jmiInventory.text")); // NOI18N
+        jmiInventory.setName("jmiInventory"); // NOI18N
+        jmJournals.add(jmiInventory);
+
+        jmiServiceJournal.setAction(actionMap.get("showServiceJournal")); // NOI18N
+        jmiServiceJournal.setText(resourceMap.getString("jmiServiceJournal.text")); // NOI18N
+        jmiServiceJournal.setName("jmiServiceJournal"); // NOI18N
+        jmJournals.add(jmiServiceJournal);
+
+        menuBar.add(jmJournals);
+
+        jmReports.setAction(actionMap.get("showProfitReport")); // NOI18N
+        jmReports.setBackground(resourceMap.getColor("jmReports.background")); // NOI18N
+        jmReports.setText(resourceMap.getString("jmReports.text")); // NOI18N
+        jmReports.setName("jmReports"); // NOI18N
+
+        jmiBalance.setAction(actionMap.get("showBalanceReport")); // NOI18N
+        jmiBalance.setText(resourceMap.getString("jmiBalance.text")); // NOI18N
+        jmiBalance.setName("jmiBalance"); // NOI18N
+        jmReports.add(jmiBalance);
+
+        jmiSalesBook.setAction(actionMap.get("showGoodsbookReport")); // NOI18N
+        jmiSalesBook.setText(resourceMap.getString("jmiSalesBook.text")); // NOI18N
+        jmiSalesBook.setName("jmiSalesBook"); // NOI18N
+        jmReports.add(jmiSalesBook);
+
+        jmiSalesReportJournal.setAction(actionMap.get("showSalesReportJournal")); // NOI18N
+        jmiSalesReportJournal.setText(resourceMap.getString("jmiSalesReportJournal.text")); // NOI18N
+        jmiSalesReportJournal.setName("jmiSalesReportJournal"); // NOI18N
+        jmReports.add(jmiSalesReportJournal);
+
+        jmiReconcillation.setAction(actionMap.get("showReconcillation")); // NOI18N
+        jmiReconcillation.setText(resourceMap.getString("jmiReconcillation.text")); // NOI18N
+        jmiReconcillation.setName("jmiReconcillation"); // NOI18N
+        jmReports.add(jmiReconcillation);
+
+        jmiSaledGoodsReport.setAction(actionMap.get("showSaledGoodsReport")); // NOI18N
+        jmiSaledGoodsReport.setText(resourceMap.getString("jmiSaledGoodsReport.text")); // NOI18N
+        jmiSaledGoodsReport.setName("jmiSaledGoodsReport"); // NOI18N
+        jmReports.add(jmiSaledGoodsReport);
+
+        jmiProfit.setAction(actionMap.get("showProfitReport")); // NOI18N
+        jmiProfit.setText(resourceMap.getString("jmiProfit.text")); // NOI18N
+        jmiProfit.setName("jmiProfit"); // NOI18N
+        jmReports.add(jmiProfit);
+
+        menuBar.add(jmReports);
+
+        jmService.setBackground(resourceMap.getColor("jmService.background")); // NOI18N
+        jmService.setText(resourceMap.getString("jmService.text")); // NOI18N
+        jmService.setName("jmService"); // NOI18N
+
+        jmiFixDatabase.setAction(actionMap.get("showFixDatabase")); // NOI18N
+        jmiFixDatabase.setText(resourceMap.getString("jmiFixDatabase.text")); // NOI18N
+        jmiFixDatabase.setName("jmiFixDatabase"); // NOI18N
+        jmService.add(jmiFixDatabase);
+
+        jmiModules.setAction(actionMap.get("showModules")); // NOI18N
+        jmiModules.setText(resourceMap.getString("jmiModules.text")); // NOI18N
+        jmiModules.setName("jmiModules"); // NOI18N
+        jmService.add(jmiModules);
+
+        jmiServer.setAction(actionMap.get("showServer")); // NOI18N
+        jmiServer.setText(resourceMap.getString("jmiServer.text")); // NOI18N
+        jmiServer.setName("jmiServer"); // NOI18N
+        jmService.add(jmiServer);
+
+        jmiSearch.setAction(actionMap.get("showSearch")); // NOI18N
+        jmiSearch.setText(resourceMap.getString("jmiSearch.text")); // NOI18N
+        jmiSearch.setName("jmiSearch"); // NOI18N
+        jmService.add(jmiSearch);
+
+        menuBar.add(jmService);
+
+        helpMenu.setBackground(resourceMap.getColor("helpMenu.background")); // NOI18N
+        helpMenu.setText(resourceMap.getString("helpMenu.text")); // NOI18N
+        helpMenu.setName("helpMenu"); // NOI18N
+
+        aboutMenuItem.setAction(actionMap.get("showAboutBox")); // NOI18N
+        aboutMenuItem.setText(resourceMap.getString("aboutMenuItem.text")); // NOI18N
+        aboutMenuItem.setName("aboutMenuItem"); // NOI18N
+        helpMenu.add(aboutMenuItem);
+
+        menuBar.add(helpMenu);
+
+        setComponent(mainPanel);
+        setMenuBar(menuBar);
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void menuBarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuBarMouseClicked
+        workplace.setFocus();
+    }//GEN-LAST:event_menuBarMouseClicked
+
+    private void jtpWindowsStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jtpWindowsStateChanged
+        tabChanged(evt);
+    }//GEN-LAST:event_jtpWindowsStateChanged
+
+    @Action
+    public void showNomenclature() {
+        JInternalFrame nv = new NomenclatureView(this, null, -1, -1, "", "", null, false);
+        jdp.add(nv, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        nv.setVisible(true);
+        try {
+            nv.setSelected(true);
+        } catch (java.beans.PropertyVetoException e) {
+            logger.error(e);
+        }
+    }
+
+    @Action
+    public void showBanks() {
+        JInternalFrame v = new BanksView(this, null);
+        jdp.add(v, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        v.setVisible(true);
+        try {
+            v.setSelected(true);
+        } catch (java.beans.PropertyVetoException e) {
+            logger.error(e);
+        }
+    }
+
+    @Action
+    public void showContractors() {
+        JInternalFrame cv = new ContractorsView(null, this, null);
+        jdp.add(cv, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        cv.setVisible(true);
+        try {
+            cv.setSelected(true);
+        } catch (java.beans.PropertyVetoException e) {
+            logger.error(e);
+        }
+    }
+
+    @Action
+    public void showSuppliers() {
+        JInternalFrame sv = new SuppliersView(this, null);
+        jdp.add(sv, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        sv.setVisible(true);
+        try {
+            sv.setSelected(true);
+        } catch (java.beans.PropertyVetoException e) {
+            logger.error(e);
+        }
+    }
+
+    @Action
+    public void showIncomingJournal() {
+        IncomingView iv = new IncomingView(this);
+        jdp.add(iv, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        iv.setVisible(true);
+        try {
+            iv.setSelected(true);
+        } catch (java.beans.PropertyVetoException e) {
+            logger.error(e);
+        }
+    }
+
+    @Action
+    public void showOutcomingJournal() {
+        OutcomingView ov = new OutcomingView(this);
+        jdp.add(ov, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        ov.setVisible(true);
+        try {
+            ov.setSelected(true);
+        } catch (java.beans.PropertyVetoException e) {
+            logger.error(e);
+        }
+    }
+
+    @Action
+    public void showRepricingJournal() {
+        JInternalFrame rj = new RepricingView(this);
+        jdp.add(rj, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        rj.setVisible(true);
+        try {
+            rj.setSelected(true);
+        } catch (java.beans.PropertyVetoException e) {
+            logger.error(e);
+        }
+    }
+
+    @Action
+    public void showSalesReportJournal() {
+        JInternalFrame rv = new SalesReportView(this);
+        jdp.add(rv, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        rv.setVisible(true);
+        try {
+            rv.setSelected(true);
+        } catch (java.beans.PropertyVetoException e) {
+            logger.error(e);
+        }
+    }
+
+    @Action
+    public void showEmployee() {
+        JInternalFrame rv = new EmployeeView(this, null, "");
+        jdp.add(rv, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        rv.setVisible(true);
+        try {
+            rv.setSelected(true);
+        } catch (java.beans.PropertyVetoException e) {
+            logger.error(e);
+        }
+    }
+
+    @Action
+    public void showTransports() {
+        JInternalFrame x = new TransportsView(this, null);
+        jdp.add(x, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        x.setVisible(true);
+        try {
+            x.setSelected(true);
+        } catch (java.beans.PropertyVetoException e) {
+            logger.error(e);
+        }
+    }
+
+    @Action
+    public void showServices() {
+        JInternalFrame x = new ServicesView(this, null, -1);
+        jdp.add(x, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        x.setVisible(true);
+        try {
+            x.setSelected(true);
+        } catch (java.beans.PropertyVetoException e) {
+            logger.error(e);
+        }
+    }
+
+    @Action
+    public void showRegisterJournal() {
+        JInternalFrame rv = new RegisterView(this);
+        jdp.add(rv, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        rv.setVisible(true);
+        try {
+            rv.setSelected(true);
+        } catch (java.beans.PropertyVetoException e) {
+            logger.error(e);
+        }
+    }
+
+    @Action
+    public void showPaymentOrderJournal() {
+        PaymentOrderView v = new PaymentOrderView(this);
+        jdp.add(v, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        v.setVisible(true);
+        try {
+            v.setSelected(true);
+        } catch (java.beans.PropertyVetoException e) {
+            logger.error(e);
+        }
+    }
+
+    @Action
+    public void showInventoryJournal() {
+        InventoryView jrn = new InventoryView(this);
+        jdp.add(jrn, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jrn.setVisible(true);
+        try {
+            jrn.setSelected(true);
+        } catch (java.beans.PropertyVetoException e) {
+            logger.error(e);
+        }
+    }
+
+    @Action
+    public void showServiceJournal() {
+        ServiceView jrn = new ServiceView(this);
+        jdp.add(jrn, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jrn.setVisible(true);
+        try {
+            jrn.setSelected(true);
+        } catch (java.beans.PropertyVetoException e) {
+            logger.error(e);
+        }
+    }
+
+    @Action
+    public void showBalanceReport() {
+        BalanceReport v = new BalanceReport(this);
+        jdp.add(v, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        v.setVisible(true);
+        try {
+            v.setSelected(true);
+        } catch (java.beans.PropertyVetoException e) {
+            logger.error(e);
+        }
+    }
+
+    @Action
+    public void showGoodsbookReport() {
+        GoodsbookReport gr = new GoodsbookReport(this);
+        jdp.add(gr, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        gr.setVisible(true);
+        try {
+            gr.setSelected(true);
+        } catch (java.beans.PropertyVetoException e) {
+            logger.error(e);
+        }
+    }
+
+    @Action
+    public void showConstants() {
+        ConstantsView c = new ConstantsView(this);
+        jdp.add(c, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        c.setVisible(true);
+        try {
+            c.setSelected(true);
+        } catch (java.beans.PropertyVetoException e) {
+            logger.error(e);
+        }
+    }
+
+    @Action
+    public void showFixDatabase() {
+        FixDatabase x = new FixDatabase(this);
+        jdp.add(x, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        x.setVisible(true);
+        try {
+            x.setSelected(true);
+        } catch (java.beans.PropertyVetoException e) {
+            logger.error(e);
+        }
+    }
+
+    @Action
+    public void showModules() {
+        ModulesView x = new ModulesView(this);
+        jdp.add(x, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        x.setVisible(true);
+        try {
+            x.setSelected(true);
+        } catch (java.beans.PropertyVetoException e) {
+            logger.error(e);
+        }
+    }
+
+    @Action
+    public void showReconcillation() {
+        Reconciliation x = new Reconciliation(this);
+        jdp.add(x, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        x.setVisible(true);
+        try {
+            x.setSelected(true);
+        } catch (java.beans.PropertyVetoException e) {
+            logger.error(e);
+        }
+    }
+
+    @Action
+    public void showSaledGoodsReport() {
+        SaledGoodsReport x = new SaledGoodsReport(this);
+        jdp.add(x, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        x.setVisible(true);
+        try {
+            x.setSelected(true);
+        } catch (java.beans.PropertyVetoException e) {
+            logger.error(e);
+        }
+    }
+
+    @Action
+    public void showServer() {
+        Server x = new Server(this);
+        jdp.add(x, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        x.setVisible(true);
+        try {
+            x.setSelected(true);
+        } catch (java.beans.PropertyVetoException e) {
+            logger.error(e);
+        }
+    }
+
+    @Action
+    public void showSearch() {
+        Search x = new Search(this);
+        jdp.add(x, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        x.setVisible(true);
+        try {
+            x.setSelected(true);
+        } catch (java.beans.PropertyVetoException e) {
+            logger.error(e);
+        }
+    }
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JButton jbInRegister;
+    private javax.swing.JButton jbIncoming;
+    private javax.swing.JButton jbInventory;
+    private javax.swing.JButton jbOutRegister;
+    private javax.swing.JButton jbOutcoming;
+    private javax.swing.JButton jbRepricing;
+    private javax.swing.JButton jbSalesReport;
+    private javax.swing.JDesktopPane jdp;
+    private javax.swing.JMenu jmCatalogs;
+    private javax.swing.JMenu jmJournals;
+    private javax.swing.JMenu jmReports;
+    private javax.swing.JMenu jmService;
+    private javax.swing.JMenuItem jmiBalance;
+    private javax.swing.JMenuItem jmiBanks;
+    private javax.swing.JMenuItem jmiConstants;
+    private javax.swing.JMenuItem jmiContractors;
+    private javax.swing.JMenuItem jmiEmployee;
+    private javax.swing.JMenuItem jmiFixDatabase;
+    private javax.swing.JMenuItem jmiIncomings;
+    private javax.swing.JMenuItem jmiInventory;
+    private javax.swing.JMenuItem jmiModules;
+    private javax.swing.JMenuItem jmiNomenclature;
+    private javax.swing.JMenuItem jmiOutcomings;
+    private javax.swing.JMenuItem jmiPaymentOrders;
+    private javax.swing.JMenuItem jmiProfit;
+    private javax.swing.JMenuItem jmiReconcillation;
+    private javax.swing.JMenuItem jmiRegisterJournal;
+    private javax.swing.JMenuItem jmiRepricings;
+    private javax.swing.JMenuItem jmiSaledGoodsReport;
+    private javax.swing.JMenuItem jmiSalesBook;
+    private javax.swing.JMenuItem jmiSalesReportJournal;
+    private javax.swing.JMenuItem jmiSearch;
+    private javax.swing.JMenuItem jmiServer;
+    private javax.swing.JMenuItem jmiServiceJournal;
+    private javax.swing.JMenuItem jmiServices;
+    private javax.swing.JMenuItem jmiSuppliers;
+    private javax.swing.JMenuItem jmiTransports;
+    private javax.swing.JTabbedPane jtpWindows;
+    private javax.swing.JPanel mainPanel;
+    private javax.swing.JMenuBar menuBar;
+    // End of variables declaration//GEN-END:variables
+    private JDialog aboutBox;
+    private Workplace workplace;
+    private boolean status;
+
+    public void setWorkplace() {
+        workplace = new Workplace(jdp, this);
+        jdp.add(workplace);
+        workplace.setVisible(true);
+        try {
+            workplace.setSelected(true);
+        } catch (java.beans.PropertyVetoException e) {
+            logger.error(e);
+        }
+        workplace.setSize(jdp.getWidth(), jdp.getHeight());
+
+        ((BasicInternalFrameUI) workplace.getUI()).setNorthPane(null);
+        workplace.setFocus();
+    }
+
+    public Workplace getWorkplace() {
+        return workplace;
+    }
+
+    public JDesktopPane getJDesktopPane() {
+        return jdp;
+    }
+
+    public JTabbedPane getTabs() {
+        return jtpWindows;
+    }
+
+    private void tabChanged(ChangeEvent evt) {
+        try {
+            int i = jtpWindows.getSelectedIndex();
+            if (i > 0) {
+                for (int j = 0; j < Util.wins.size(); j++) {
+                    JInternalFrame f = (JInternalFrame) Util.wins.get(j);
+                    f.setVisible(true);
+                }
+                JInternalFrame f = (JInternalFrame) Util.wins.get(i - 1);
+                f.moveToFront();
+                f.setSelected(true);
+            } else if (i == 0) {
+                Component[] cs = jdp.getAllFrames();
+                for (int j = 0; j < cs.length; j++) {
+                    if (!(cs[j] instanceof Workplace)) {
+                        ((JInternalFrame) cs[j]).setVisible(false);
+                    } else {
+                        ((JInternalFrame) cs[j]).moveToFront();
+                        ((JInternalFrame) cs[j]).setSelected(true);
+                    }
+                }
+            }
+        } catch (Exception e) {
+            logger.error(e);
+        }
+    }
+
+    @Override
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
+    @Action
+    public void showIncoming() {
+        Init init = new Init();
+        init.init(this, "Incoming");
+        if (status) {
+            IncomingDocView x = new IncomingDocView(this, null, null, null);
+            jdp.add(x, javax.swing.JLayeredPane.DEFAULT_LAYER);
+            x.setVisible(true);
+            try {
+                x.setSelected(true);
+            } catch (java.beans.PropertyVetoException e) {
+                logger.error(e);
+            }
+            x.setFocus();
+        }
+    }
+
+    @Action
+    public void showOutcoming() {
+        Init init = new Init();
+        init.init(this, "Outcoming");
+        if (status) {
+            OutcomingDocView x = new OutcomingDocView(this, null, null, 0, false, null);
+            jdp.add(x, javax.swing.JLayeredPane.DEFAULT_LAYER);
+            x.setVisible(true);
+            try {
+                x.setSelected(true);
+            } catch (java.beans.PropertyVetoException e) {
+                logger.error(e);
+            }
+            x.setFocus();
+        }
+    }
+
+    @Action
+    public void showInRegister() {
+        Init init = new Init();
+        init.init(this, "Register");
+        if (status) {
+            RegisterDocView x = new RegisterDocView(this, null, null, 0);
+            jdp.add(x, javax.swing.JLayeredPane.DEFAULT_LAYER);
+            x.setVisible(true);
+            try {
+                x.setSelected(true);
+            } catch (java.beans.PropertyVetoException e) {
+                logger.error(e);
+            }
+        }
+    }
+
+    @Action
+    public void showOutRegister() {
+        Init init = new Init();
+        init.init(this, "Register");
+        if (status) {
+            RegisterDocView x = new RegisterDocView(this, null, null, 1);
+            jdp.add(x, javax.swing.JLayeredPane.DEFAULT_LAYER);
+            x.setVisible(true);
+            try {
+                x.setSelected(true);
+            } catch (java.beans.PropertyVetoException e) {
+                logger.error(e);
+            }
+        }
+    }
+
+    @Action
+    public void showInventory() {
+        Init init = new Init();
+        init.init(this, "Inventory");
+        if (status) {
+            InventoryDocView x = new InventoryDocView(this, null, null, null);
+            jdp.add(x, javax.swing.JLayeredPane.DEFAULT_LAYER);
+            x.setVisible(true);
+            try {
+                x.setSelected(true);
+            } catch (java.beans.PropertyVetoException e) {
+                logger.error(e);
+            }
+            x.setFocus();
+        }
+    }
+
+    @Action
+    public void showRepricing() {
+        Init init = new Init();
+        init.init(this, "Repricing");
+        if (status) {
+            RepricingDocView x = new RepricingDocView(this, null, null, null);
+            jdp.add(x, javax.swing.JLayeredPane.DEFAULT_LAYER);
+            x.setVisible(true);
+            try {
+                x.setSelected(true);
+            } catch (java.beans.PropertyVetoException e) {
+                logger.error(e);
+            }
+            x.setFocus();
+        }
+    }
+
+    @Action
+    public void showSalesReport() {
+        Init init = new Init();
+        init.init(this, "SalesReport");
+        if (status) {
+            SalesReportDocView x = new SalesReportDocView(this, null, null);
+            jdp.add(x, javax.swing.JLayeredPane.DEFAULT_LAYER);
+            x.setVisible(true);
+            try {
+                x.setSelected(true);
+            } catch (java.beans.PropertyVetoException e) {
+                logger.error(e);
+            }
+        }
+    }
+
+    @Action
+    public void showProfitReport() {
+
+        ProfitReport x = new ProfitReport(this);
+        jdp.add(x, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        x.setVisible(true);
+        try {
+            x.setSelected(true);
+        } catch (java.beans.PropertyVetoException e) {
+            logger.error(e);
+        }
+    }
+}

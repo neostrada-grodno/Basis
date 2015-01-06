@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25.03.2014 13:42:31 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="sales.entity.Outcomingtable" table="outcomingtable" catalog="sales">
+        <id name="code" type="java.lang.Integer">
+            <column name="code" />
+            <generator class="identity" />
+        </id>
+        <property name="documentCode" type="java.lang.Integer">
+            <column name="documentCode" />
+        </property>
+        <property name="line" type="int">
+            <column name="line" not-null="true" />
+        </property>
+        <property name="productCode" type="java.lang.Integer">
+            <column name="productCode" />
+        </property>
+        <property name="inPrice" type="int">
+            <column name="inPrice" not-null="true" />
+        </property>
+        <property name="surcharge" type="int">
+            <column name="surcharge" not-null="true" />
+        </property>
+        <property name="price" type="int">
+            <column name="price" not-null="true" />
+        </property>
+        <property name="quantity" type="int">
+            <column name="quantity" not-null="true" />
+        </property>
+        <property name="amount" type="int">
+            <column name="amount" not-null="true" />
+        </property>
+        <property name="cargos" type="int">
+            <column name="cargos" not-null="true" />
+        </property>
+        <property name="weight" type="double">
+            <column name="weight" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="incomingCode" type="java.lang.Integer">
+            <column name="incomingCode" />
+        </property>
+    </class>
+</hibernate-mapping>

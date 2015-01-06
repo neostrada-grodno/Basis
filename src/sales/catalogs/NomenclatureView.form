@@ -1,0 +1,356 @@
+<?xml version="1.1" encoding="UTF-8" ?>
+
+<Form version="1.5" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JInternalFrameFormInfo">
+  <Properties>
+    <Property name="closable" type="boolean" value="true"/>
+    <Property name="maximizable" type="boolean" value="true"/>
+    <Property name="resizable" type="boolean" value="true"/>
+    <Property name="title" type="java.lang.String" resourceKey="Form.title"/>
+    <Property name="name" type="java.lang.String" value="Form" noResource="true"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="2"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="jScrollPane1" alignment="0" pref="939" max="32767" attributes="0"/>
+                  <Component id="jspNomenclature" alignment="0" pref="939" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jtfFilter" pref="581" max="32767" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jbFilterBySelected" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jbRestoreFilter" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="jbPriceListStandard" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jbPricelist" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jbDelPricelist" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jbClear" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="181" max="32767" attributes="0"/>
+                      <Component id="jbOK" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jbClose" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jlQuantity" min="-2" pref="119" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jbBalance" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jcbInPrice" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jbRandomScanCode" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jbImport" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jbAddItem" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jbAddPricelist" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jbDelete" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jbTrash" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jtfFilter" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jbRestoreFilter" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jbFilterBySelected" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jspNomenclature" min="-2" pref="278" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jcbInPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jbBalance" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                  <Component id="jbAddItem" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jbDelete" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jbTrash" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jbImport" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jbAddPricelist" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jlQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jbRandomScanCode" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jScrollPane1" pref="185" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jbClose" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jbOK" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jbPriceListStandard" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jbPricelist" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jbDelPricelist" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jbClear" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JScrollPane" name="jspNomenclature">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="jspNomenclature" noResource="true"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTable" name="jtNomenclature">
+          <Properties>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="4" rowCount="4">
+                <Column editable="true" title="Title 1" type="java.lang.Object"/>
+                <Column editable="true" title="Title 2" type="java.lang.Object"/>
+                <Column editable="true" title="Title 3" type="java.lang.Object"/>
+                <Column editable="true" title="Title 4" type="java.lang.Object"/>
+              </Table>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" resourceKey="jtNomenclature.toolTipText"/>
+            <Property name="cellSelectionEnabled" type="boolean" value="true"/>
+            <Property name="name" type="java.lang.String" value="jtNomenclature" noResource="true"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jtNomenclatureMouseClicked"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtNomenclatureKeyReleased"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtNomenclatureKeyTyped"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JTable() {&#xa;&#xa;    public Component prepareEditor(TableCellEditor editor,int row,int col)&#xa;    {&#xa;        Component c = super.prepareEditor(editor, row, col);&#xa;        if (c instanceof JTextComponent) {&#xa;            ((JTextComponent) c).selectAll();&#xa;            SwingUtilities.invokeLater(new Util.SelectLater((JTextComponent) c));&#xa;        }&#xa;        return c;&#xa;    }&#xa;}"/>
+          </AuxValues>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" resourceKey="jLabel1.text"/>
+        <Property name="name" type="java.lang.String" value="jLabel1" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jtfFilter">
+      <Properties>
+        <Property name="text" type="java.lang.String" resourceKey="jtfFilter.text"/>
+        <Property name="name" type="java.lang.String" value="jtfFilter" noResource="true"/>
+      </Properties>
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtfFilterKeyReleased"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jbAddItem">
+      <Properties>
+        <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+          <action class="sales.catalogs.NomenclatureView" id="addItem" methodName="addItem"/>
+        </Property>
+        <Property name="text" type="java.lang.String" resourceKey="jbAddItem.text"/>
+        <Property name="name" type="java.lang.String" value="jbAddItem" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jbDelete">
+      <Properties>
+        <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+          <action class="sales.NomenclatureView" id="deleteItem" methodName="deleteItem"/>
+        </Property>
+        <Property name="text" type="java.lang.String" resourceKey="jbDelete.text"/>
+        <Property name="name" type="java.lang.String" value="jbDelete" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jbOK">
+      <Properties>
+        <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+          <action class="sales.NomenclatureView" id="OK" methodName="OK"/>
+        </Property>
+        <Property name="text" type="java.lang.String" resourceKey="jbOK.text"/>
+        <Property name="name" type="java.lang.String" value="jbOK" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jbImport">
+      <Properties>
+        <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+          <action class="sales.NomenclatureView" id="importNomenclature" methodName="importNomenclature"/>
+        </Property>
+        <Property name="text" type="java.lang.String" resourceKey="jbImport.text"/>
+        <Property name="name" type="java.lang.String" value="jbImport" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jlQuantity">
+      <Properties>
+        <Property name="text" type="java.lang.String" resourceKey="jlQuantity.text"/>
+        <Property name="name" type="java.lang.String" value="jlQuantity" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jcbInPrice">
+      <Properties>
+        <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+          <action class="sales.NomenclatureView" id="showInPrice" methodName="showInPrice"/>
+        </Property>
+        <Property name="text" type="java.lang.String" resourceKey="jcbInPrice.text"/>
+        <Property name="name" type="java.lang.String" value="jcbInPrice" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jbClose">
+      <Properties>
+        <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+          <action class="sales.catalogs.NomenclatureView" id="closeCat" methodName="closeCat"/>
+        </Property>
+        <Property name="text" type="java.lang.String" resourceKey="jbClose.text"/>
+        <Property name="name" type="java.lang.String" value="jbClose" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jbTrash">
+      <Properties>
+        <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+          <action class="sales.catalogs.NomenclatureView" id="showTrash" methodName="showTrash"/>
+        </Property>
+        <Property name="text" type="java.lang.String" resourceKey="jbTrash.text"/>
+        <Property name="name" type="java.lang.String" value="jbTrash" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jbPricelist">
+      <Properties>
+        <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+          <action class="sales.catalogs.NomenclatureView" id="printPriceListCredit" methodName="printPriceListCredit"/>
+        </Property>
+        <Property name="text" type="java.lang.String" resourceKey="jbPricelist.text"/>
+        <Property name="name" type="java.lang.String" value="jbPricelist" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jbBalance">
+      <Properties>
+        <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+          <action class="sales.catalogs.NomenclatureView" id="showBalance" methodName="showBalance"/>
+        </Property>
+        <Property name="text" type="java.lang.String" resourceKey="jbBalance.text"/>
+        <Property name="name" type="java.lang.String" value="jbBalance" noResource="true"/>
+      </Properties>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="jScrollPane1" noResource="true"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTable" name="jtPricelist">
+          <Properties>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="4" rowCount="4">
+                <Column editable="true" title="Title 1" type="java.lang.Object"/>
+                <Column editable="true" title="Title 2" type="java.lang.Object"/>
+                <Column editable="true" title="Title 3" type="java.lang.Object"/>
+                <Column editable="true" title="Title 4" type="java.lang.Object"/>
+              </Table>
+            </Property>
+            <Property name="name" type="java.lang.String" value="jtPricelist" noResource="true"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JButton" name="jbAddPricelist">
+      <Properties>
+        <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+          <action class="sales.catalogs.NomenclatureView" id="addToPricelist" methodName="addToPricelist"/>
+        </Property>
+        <Property name="text" type="java.lang.String" resourceKey="jbAddPricelist.text"/>
+        <Property name="name" type="java.lang.String" value="jbAddPricelist" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="text" type="java.lang.String" resourceKey="jLabel2.text"/>
+        <Property name="name" type="java.lang.String" value="jLabel2" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jbDelPricelist">
+      <Properties>
+        <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+          <action class="sales.catalogs.NomenclatureView" id="delFromPricelist" methodName="delFromPricelist"/>
+        </Property>
+        <Property name="text" type="java.lang.String" resourceKey="jbDelPricelist.text"/>
+        <Property name="name" type="java.lang.String" value="jbDelPricelist" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jbClear">
+      <Properties>
+        <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+          <action class="sales.catalogs.NomenclatureView" id="clearPricelist" methodName="clearPricelist"/>
+        </Property>
+        <Property name="text" type="java.lang.String" resourceKey="jbClear.text"/>
+        <Property name="name" type="java.lang.String" value="jbClear" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jbFilterBySelected">
+      <Properties>
+        <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+          <action class="sales.catalogs.NomenclatureView" id="filterBySelected" methodName="filterBySelected"/>
+        </Property>
+        <Property name="text" type="java.lang.String" resourceKey="jbFilterBySelected.text"/>
+        <Property name="name" type="java.lang.String" value="jbFilterBySelected" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jbRestoreFilter">
+      <Properties>
+        <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+          <action class="sales.catalogs.NomenclatureView" id="restoreFilter" methodName="restoreFilter"/>
+        </Property>
+        <Property name="text" type="java.lang.String" resourceKey="jbRestoreFilter.text"/>
+        <Property name="name" type="java.lang.String" value="jbRestoreFilter" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jbRandomScanCode">
+      <Properties>
+        <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+          <action class="sales.catalogs.NomenclatureView" id="createRandomScanCode" methodName="createRandomScanCode"/>
+        </Property>
+        <Property name="text" type="java.lang.String" resourceKey="jbRandomScanCode.text"/>
+        <Property name="name" type="java.lang.String" value="jbRandomScanCode" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jbPriceListStandard">
+      <Properties>
+        <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+          <action class="sales.catalogs.NomenclatureView" id="printPriceList" methodName="printPriceList"/>
+        </Property>
+        <Property name="text" type="java.lang.String" resourceKey="jbPriceListStandard.text"/>
+        <Property name="name" type="java.lang.String" value="jbPriceListStandard" noResource="true"/>
+      </Properties>
+    </Component>
+  </SubComponents>
+</Form>

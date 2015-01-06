@@ -1,0 +1,1 @@
+"C:\Program Files\MySQL\MySQL Server 5.5\bin\mysql.exe" -u root --default-character-set=utf8 -e "C:\Program Files\Basis\sales.sql"

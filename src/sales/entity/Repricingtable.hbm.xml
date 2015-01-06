@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25.03.2014 13:42:31 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="sales.entity.Repricingtable" table="repricingtable" catalog="sales">
+        <id name="code" type="java.lang.Integer">
+            <column name="code" />
+            <generator class="identity" />
+        </id>
+        <property name="documentCode" type="int">
+            <column name="documentCode" not-null="true" />
+        </property>
+        <property name="line" type="int">
+            <column name="line" not-null="true" />
+        </property>
+        <property name="productCode" type="java.lang.Integer">
+            <column name="productCode" />
+        </property>
+        <property name="startPrice" type="java.lang.Integer">
+            <column name="startPrice" />
+        </property>
+        <property name="quantity" type="java.lang.Integer">
+            <column name="quantity" />
+        </property>
+        <property name="changePrice" type="java.lang.Integer">
+            <column name="changePrice" />
+        </property>
+        <property name="newPrice" type="java.lang.Integer">
+            <column name="newPrice" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">sales.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://k3n:3306/sales</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</property>
+    <mapping resource="sales/entity/Suppliers.hbm.xml"/>
+    <mapping resource="sales/entity/Repricingtable.hbm.xml"/>
+    <mapping resource="sales/entity/Outcoming.hbm.xml"/>
+    <mapping resource="sales/entity/Outcomingpayments.hbm.xml"/>
+    <mapping resource="sales/entity/Outcomingtable.hbm.xml"/>
+    <mapping resource="sales/entity/Incomingtable.hbm.xml"/>
+    <mapping resource="sales/entity/Nomenclature.hbm.xml"/>
+    <mapping resource="sales/entity/Contractors.hbm.xml"/>
+    <mapping resource="sales/entity/Paymentorder.hbm.xml"/>
+    <mapping resource="sales/entity/Previousbalance.hbm.xml"/>
+    <mapping resource="sales/entity/Constants.hbm.xml"/>
+    <mapping resource="sales/entity/Inventorytable.hbm.xml"/>
+    <mapping resource="sales/entity/Inventory.hbm.xml"/>
+    <mapping resource="sales/entity/Repricing.hbm.xml"/>
+    <mapping resource="sales/entity/Salesreport.hbm.xml"/>
+    <mapping resource="sales/entity/Employee.hbm.xml"/>
+    <mapping resource="sales/entity/Incoming.hbm.xml"/>
+    <mapping resource="sales/entity/Register.hbm.xml"/>
+    <mapping resource="sales/entity/Modules.hbm.xml"/>
+    <mapping resource="sales/entity/Serialtable.hbm.xml"/>
+    <mapping resource="sales/entity/Banks.hbm.xml"/>
+    <mapping resource="sales/entity/Transports.hbm.xml"/>
+    <mapping resource="sales/entity/Registertable.hbm.xml"/>
+    <mapping resource="sales/entity/Services.hbm.xml"/>
+    <mapping resource="sales/entity/Service.hbm.xml"/>
+    <mapping resource="sales/entity/Servicematerialtable.hbm.xml"/>
+    <mapping resource="sales/entity/Servicetable.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

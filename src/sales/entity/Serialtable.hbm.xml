@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25.03.2014 13:42:31 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="sales.entity.Serialtable" table="serialtable" catalog="sales">
+        <id name="code" type="java.lang.Integer">
+            <column name="code" />
+            <generator class="identity" />
+        </id>
+        <property name="documentCode" type="int">
+            <column name="documentCode" not-null="true" />
+        </property>
+        <property name="productCode" type="int">
+            <column name="productCode" not-null="true" />
+        </property>
+        <property name="position" type="int">
+            <column name="position" not-null="true" />
+        </property>
+        <property name="serial" type="string">
+            <column name="serial" length="65535" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

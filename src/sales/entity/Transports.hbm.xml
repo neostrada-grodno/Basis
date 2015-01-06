@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25.03.2014 13:42:31 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="sales.entity.Transports" table="transports" catalog="sales">
+        <id name="code" type="java.lang.Integer">
+            <column name="code" />
+            <generator class="identity" />
+        </id>
+        <property name="auto" type="string">
+            <column name="auto" length="65535" />
+        </property>
+        <property name="trailer" type="string">
+            <column name="trailer" length="65535" />
+        </property>
+        <property name="owner" type="string">
+            <column name="owner" length="65535" />
+        </property>
+        <property name="driver" type="string">
+            <column name="driver" length="65535" />
+        </property>
+        <property name="active" type="int">
+            <column name="active" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

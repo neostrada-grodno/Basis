@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25.03.2014 13:42:31 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="sales.entity.Incomingtable" table="incomingtable" catalog="sales">
+        <id name="code" type="java.lang.Integer">
+            <column name="code" />
+            <generator class="identity" />
+        </id>
+        <property name="documentCode" type="int">
+            <column name="documentCode" not-null="true" />
+        </property>
+        <property name="line" type="int">
+            <column name="line" not-null="true" />
+        </property>
+        <property name="productCode" type="java.lang.Integer">
+            <column name="productCode" />
+        </property>
+        <property name="productName" type="string">
+            <column name="productName" length="65535" />
+        </property>
+        <property name="inPrice" type="int">
+            <column name="inPrice" not-null="true" />
+        </property>
+        <property name="quantity" type="int">
+            <column name="quantity" not-null="true" />
+        </property>
+        <property name="inAmount" type="int">
+            <column name="inAmount" not-null="true" />
+        </property>
+        <property name="nds" type="int">
+            <column name="nds" not-null="true" />
+        </property>
+        <property name="ndsAmount" type="int">
+            <column name="ndsAmount" not-null="true" />
+        </property>
+        <property name="ndsAndAmount" type="int">
+            <column name="ndsAndAmount" not-null="true" />
+        </property>
+        <property name="price" type="int">
+            <column name="price" not-null="true" />
+        </property>
+        <property name="perSurcharge" type="double">
+            <column name="perSurcharge" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="surcharge" type="int">
+            <column name="surcharge" not-null="true" />
+        </property>
+        <property name="amount" type="int">
+            <column name="amount" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

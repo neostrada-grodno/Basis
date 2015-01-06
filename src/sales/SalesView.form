@@ -1,0 +1,512 @@
+<?xml version="1.1" encoding="UTF-8" ?>
+
+<Form version="1.5" maxVersion="1.7">
+  <NonVisualComponents>
+    <Container class="javax.swing.JPanel" name="mainPanel">
+      <Properties>
+        <Property name="background" type="java.awt.Color" resourceKey="mainPanel.background"/>
+        <Property name="name" type="java.lang.String" value="mainPanel" noResource="true"/>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="jdp" alignment="0" pref="1065" max="32767" attributes="0"/>
+                      <Component id="jSeparator1" alignment="1" pref="1065" max="32767" attributes="0"/>
+                      <Component id="jtpWindows" alignment="0" pref="1065" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jbIncoming" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jbOutcoming" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jbInRegister" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jbOutRegister" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jbInventory" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jbRepricing" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jbSalesReport" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="jtpWindows" min="-2" pref="25" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jdp" pref="389" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jSeparator1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jbIncoming" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jbOutcoming" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jbInRegister" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jbOutRegister" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jbInventory" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jbRepricing" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jbSalesReport" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Container class="javax.swing.JDesktopPane" name="jdp">
+          <Properties>
+            <Property name="background" type="java.awt.Color" resourceKey="jdp.background"/>
+            <Property name="name" type="java.lang.String" value="jdp" noResource="true"/>
+          </Properties>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout"/>
+        </Container>
+        <Container class="javax.swing.JTabbedPane" name="jtpWindows">
+          <Properties>
+            <Property name="background" type="java.awt.Color" resourceKey="jtpWindows.background"/>
+            <Property name="tabLayoutPolicy" type="int" value="1"/>
+            <Property name="name" type="java.lang.String" value="jtpWindows" noResource="true"/>
+          </Properties>
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="jtpWindowsStateChanged"/>
+          </Events>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
+        </Container>
+        <Component class="javax.swing.JButton" name="jbIncoming">
+          <Properties>
+            <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+              <action class="sales.SalesView" id="showIncoming" methodName="showIncoming"/>
+            </Property>
+            <Property name="text" type="java.lang.String" resourceKey="jbIncoming.text"/>
+            <Property name="name" type="java.lang.String" value="jbIncoming" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="jbOutcoming">
+          <Properties>
+            <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+              <action class="sales.SalesView" id="showOutcoming" methodName="showOutcoming"/>
+            </Property>
+            <Property name="text" type="java.lang.String" resourceKey="jbOutcoming.text"/>
+            <Property name="name" type="java.lang.String" value="jbOutcoming" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="jbInRegister">
+          <Properties>
+            <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+              <action class="sales.SalesView" id="showInRegister" methodName="showInRegister"/>
+            </Property>
+            <Property name="text" type="java.lang.String" resourceKey="jbInRegister.text"/>
+            <Property name="name" type="java.lang.String" value="jbInRegister" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="jbOutRegister">
+          <Properties>
+            <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+              <action class="sales.SalesView" id="showOutRegister" methodName="showOutRegister"/>
+            </Property>
+            <Property name="text" type="java.lang.String" resourceKey="jbOutRegister.text"/>
+            <Property name="name" type="java.lang.String" value="jbOutRegister" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="jbInventory">
+          <Properties>
+            <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+              <action class="sales.SalesView" id="showInventory" methodName="showInventory"/>
+            </Property>
+            <Property name="text" type="java.lang.String" resourceKey="jbInventory.text"/>
+            <Property name="name" type="java.lang.String" value="jbInventory" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="jbRepricing">
+          <Properties>
+            <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+              <action class="sales.SalesView" id="showRepricing" methodName="showRepricing"/>
+            </Property>
+            <Property name="text" type="java.lang.String" resourceKey="jbRepricing.text"/>
+            <Property name="name" type="java.lang.String" value="jbRepricing" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="jbSalesReport">
+          <Properties>
+            <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+              <action class="sales.SalesView" id="showSalesReport" methodName="showSalesReport"/>
+            </Property>
+            <Property name="text" type="java.lang.String" resourceKey="jbSalesReport.text"/>
+            <Property name="name" type="java.lang.String" value="jbSalesReport" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JSeparator" name="jSeparator1">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="jSeparator1" noResource="true"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JMenuBar" name="menuBar">
+      <Properties>
+        <Property name="background" type="java.awt.Color" resourceKey="menuBar.background"/>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[0, 21]"/>
+        </Property>
+        <Property name="name" type="java.lang.String" value="menuBar" noResource="true"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="menuBarMouseClicked"/>
+      </Events>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+        <Property name="useNullLayout" type="boolean" value="true"/>
+      </Layout>
+      <SubComponents>
+        <Menu class="javax.swing.JMenu" name="fileMenu">
+          <Properties>
+            <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+              <action class="sales.SalesView" id="exit" methodName="exit"/>
+            </Property>
+            <Property name="background" type="java.awt.Color" resourceKey="fileMenu.background"/>
+            <Property name="text" type="java.lang.String" resourceKey="fileMenu.text"/>
+            <Property name="name" type="java.lang.String" value="fileMenu" noResource="true"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableLocal" type="java.lang.Boolean" value="true"/>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="0"/>
+          </AuxValues>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="exitMenuItem">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="org.jdesktop.application.Application" id="quit" methodName="quit"/>
+                </Property>
+                <Property name="text" type="java.lang.String" resourceKey="exitMenuItem.text"/>
+                <Property name="name" type="java.lang.String" value="exitMenuItem" noResource="true"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableLocal" type="java.lang.Boolean" value="true"/>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="0"/>
+              </AuxValues>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="jmCatalogs">
+          <Properties>
+            <Property name="background" type="java.awt.Color" resourceKey="jmCatalogs.background"/>
+            <Property name="text" type="java.lang.String" resourceKey="jmCatalogs.text"/>
+            <Property name="name" type="java.lang.String" value="jmCatalogs" noResource="true"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jmiConstants">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="sales.SalesView" id="showConstants" methodName="showConstants"/>
+                </Property>
+                <Property name="text" type="java.lang.String" resourceKey="jmiConstants.text"/>
+                <Property name="name" type="java.lang.String" value="jmiConstants" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jmiBanks">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="sales.SalesView" id="showBanks" methodName="showBanks"/>
+                </Property>
+                <Property name="text" type="java.lang.String" resourceKey="jmiBanks.text"/>
+                <Property name="name" type="java.lang.String" value="jmiBanks" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jmiNomenclature">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="sales.SalesView" id="showNomenclature" methodName="showNomenclature"/>
+                </Property>
+                <Property name="text" type="java.lang.String" resourceKey="jmiNomenclature.text"/>
+                <Property name="name" type="java.lang.String" value="jmiNomenclature" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jmiContractors">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="sales.SalesView" id="showContractors" methodName="showContractors"/>
+                </Property>
+                <Property name="text" type="java.lang.String" resourceKey="jmiContractors.text"/>
+                <Property name="name" type="java.lang.String" value="jmiContractors" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jmiSuppliers">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="sales.SalesView" id="showSuppliers" methodName="showSuppliers"/>
+                </Property>
+                <Property name="text" type="java.lang.String" resourceKey="jmiSuppliers.text"/>
+                <Property name="name" type="java.lang.String" value="jmiSuppliers" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jmiEmployee">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="sales.SalesView" id="showEmployee" methodName="showEmployee"/>
+                </Property>
+                <Property name="text" type="java.lang.String" resourceKey="jmiEmployee.text"/>
+                <Property name="name" type="java.lang.String" value="jmiEmployee" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jmiTransports">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="sales.SalesView" id="showTransports" methodName="showTransports"/>
+                </Property>
+                <Property name="text" type="java.lang.String" resourceKey="jmiTransports.text"/>
+                <Property name="name" type="java.lang.String" value="jmiTransports" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jmiServices">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="sales.SalesView" id="showServices" methodName="showServices"/>
+                </Property>
+                <Property name="text" type="java.lang.String" resourceKey="jmiServices.text"/>
+                <Property name="name" type="java.lang.String" value="jmiServices" noResource="true"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="jmJournals">
+          <Properties>
+            <Property name="background" type="java.awt.Color" resourceKey="jmJournals.background"/>
+            <Property name="text" type="java.lang.String" resourceKey="jmJournals.text"/>
+            <Property name="name" type="java.lang.String" value="jmJournals" noResource="true"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jmiIncomings">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="sales.SalesView" id="showIncomingJournal" methodName="showIncomingJournal"/>
+                </Property>
+                <Property name="text" type="java.lang.String" resourceKey="jmiIncomings.text"/>
+                <Property name="name" type="java.lang.String" value="jmiIncomings" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jmiOutcomings">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="sales.SalesView" id="showOutcomingJournal" methodName="showOutcomingJournal"/>
+                </Property>
+                <Property name="text" type="java.lang.String" resourceKey="jmiOutcomings.text"/>
+                <Property name="name" type="java.lang.String" value="jmiOutcomings" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jmiRepricings">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="sales.SalesView" id="showRepricingJournal" methodName="showRepricingJournal"/>
+                </Property>
+                <Property name="text" type="java.lang.String" resourceKey="jmiRepricings.text"/>
+                <Property name="name" type="java.lang.String" value="jmiRepricings" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jmiRegisterJournal">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="sales.SalesView" id="showRegisterJournal" methodName="showRegisterJournal"/>
+                </Property>
+                <Property name="text" type="java.lang.String" resourceKey="jmiRegisterJournal.text"/>
+                <Property name="name" type="java.lang.String" value="jmiRegisterJournal" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jmiPaymentOrders">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="sales.SalesView" id="showPaymentOrderJournal" methodName="showPaymentOrderJournal"/>
+                </Property>
+                <Property name="text" type="java.lang.String" resourceKey="jmiPaymentOrders.text"/>
+                <Property name="name" type="java.lang.String" value="jmiPaymentOrders" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jmiInventory">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="sales.SalesView" id="showInventoryJournal" methodName="showInventoryJournal"/>
+                </Property>
+                <Property name="text" type="java.lang.String" resourceKey="jmiInventory.text"/>
+                <Property name="name" type="java.lang.String" value="jmiInventory" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jmiServiceJournal">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="sales.SalesView" id="showServiceJournal" methodName="showServiceJournal"/>
+                </Property>
+                <Property name="text" type="java.lang.String" resourceKey="jmiServiceJournal.text"/>
+                <Property name="name" type="java.lang.String" value="jmiServiceJournal" noResource="true"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="jmReports">
+          <Properties>
+            <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+              <action class="sales.SalesView" id="showProfitReport" methodName="showProfitReport"/>
+            </Property>
+            <Property name="background" type="java.awt.Color" resourceKey="jmReports.background"/>
+            <Property name="text" type="java.lang.String" resourceKey="jmReports.text"/>
+            <Property name="name" type="java.lang.String" value="jmReports" noResource="true"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jmiBalance">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="sales.SalesView" id="showBalanceReport" methodName="showBalanceReport"/>
+                </Property>
+                <Property name="text" type="java.lang.String" resourceKey="jmiBalance.text"/>
+                <Property name="name" type="java.lang.String" value="jmiBalance" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jmiSalesBook">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="sales.SalesView" id="showGoodsbookReport" methodName="showGoodsbookReport"/>
+                </Property>
+                <Property name="text" type="java.lang.String" resourceKey="jmiSalesBook.text"/>
+                <Property name="name" type="java.lang.String" value="jmiSalesBook" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jmiSalesReportJournal">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="sales.SalesView" id="showSalesReportJournal" methodName="showSalesReportJournal"/>
+                </Property>
+                <Property name="text" type="java.lang.String" resourceKey="jmiSalesReportJournal.text"/>
+                <Property name="name" type="java.lang.String" value="jmiSalesReportJournal" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jmiReconcillation">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="sales.SalesView" id="showReconcillation" methodName="showReconcillation"/>
+                </Property>
+                <Property name="text" type="java.lang.String" resourceKey="jmiReconcillation.text"/>
+                <Property name="name" type="java.lang.String" value="jmiReconcillation" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jmiSaledGoodsReport">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="sales.SalesView" id="showSaledGoodsReport" methodName="showSaledGoodsReport"/>
+                </Property>
+                <Property name="text" type="java.lang.String" resourceKey="jmiSaledGoodsReport.text"/>
+                <Property name="name" type="java.lang.String" value="jmiSaledGoodsReport" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jmiProfit">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="sales.SalesView" id="showProfitReport" methodName="showProfitReport"/>
+                </Property>
+                <Property name="text" type="java.lang.String" resourceKey="jmiProfit.text"/>
+                <Property name="name" type="java.lang.String" value="jmiProfit" noResource="true"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="jmService">
+          <Properties>
+            <Property name="background" type="java.awt.Color" resourceKey="jmService.background"/>
+            <Property name="text" type="java.lang.String" resourceKey="jmService.text"/>
+            <Property name="name" type="java.lang.String" value="jmService" noResource="true"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jmiFixDatabase">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="sales.SalesView" id="showFixDatabase" methodName="showFixDatabase"/>
+                </Property>
+                <Property name="text" type="java.lang.String" resourceKey="jmiFixDatabase.text"/>
+                <Property name="name" type="java.lang.String" value="jmiFixDatabase" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jmiModules">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="sales.SalesView" id="showModules" methodName="showModules"/>
+                </Property>
+                <Property name="text" type="java.lang.String" resourceKey="jmiModules.text"/>
+                <Property name="name" type="java.lang.String" value="jmiModules" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jmiServer">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="sales.SalesView" id="showServer" methodName="showServer"/>
+                </Property>
+                <Property name="text" type="java.lang.String" resourceKey="jmiServer.text"/>
+                <Property name="name" type="java.lang.String" value="jmiServer" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jmiSearch">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="sales.SalesView" id="showSearch" methodName="showSearch"/>
+                </Property>
+                <Property name="text" type="java.lang.String" resourceKey="jmiSearch.text"/>
+                <Property name="name" type="java.lang.String" value="jmiSearch" noResource="true"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="helpMenu">
+          <Properties>
+            <Property name="background" type="java.awt.Color" resourceKey="helpMenu.background"/>
+            <Property name="text" type="java.lang.String" resourceKey="helpMenu.text"/>
+            <Property name="name" type="java.lang.String" value="helpMenu" noResource="true"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableLocal" type="java.lang.Boolean" value="true"/>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="0"/>
+          </AuxValues>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="aboutMenuItem">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="sales.SalesView" id="showAboutBox" methodName="showAboutBox"/>
+                </Property>
+                <Property name="text" type="java.lang.String" resourceKey="aboutMenuItem.text"/>
+                <Property name="name" type="java.lang.String" value="aboutMenuItem" noResource="true"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableLocal" type="java.lang.Boolean" value="true"/>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="0"/>
+              </AuxValues>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+      </SubComponents>
+    </Container>
+  </NonVisualComponents>
+  <Properties>
+    <Property name="component" type="javax.swing.JComponent" editor="org.netbeans.modules.form.ComponentChooserEditor">
+      <ComponentRef name="mainPanel"/>
+    </Property>
+    <Property name="menuBar" type="javax.swing.JMenuBar" editor="org.netbeans.modules.form.ComponentChooserEditor">
+      <ComponentRef name="menuBar"/>
+    </Property>
+  </Properties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="2"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,1,-23,0,0,4,61"/>
+  </AuxValues>
+</Form>

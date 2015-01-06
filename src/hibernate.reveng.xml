@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="sales"/>
+  <table-filter match-name="salesreport"/>
+  <table-filter match-name="modules"/>
+  <table-filter match-name="transports"/>
+  <table-filter match-name="constants"/>
+  <table-filter match-name="registertable"/>
+  <table-filter match-name="outcomingtable"/>
+  <table-filter match-name="employee"/>
+  <table-filter match-name="suppliers"/>
+  <table-filter match-name="previousbalance"/>
+  <table-filter match-name="serialtable"/>
+  <table-filter match-name="inventorytable"/>
+  <table-filter match-name="register"/>
+  <table-filter match-name="banks"/>
+  <table-filter match-name="outcomingpayments"/>
+  <table-filter match-name="contractors"/>
+  <table-filter match-name="repricing"/>
+  <table-filter match-name="service"/>
+  <table-filter match-name="servicematerialtable"/>
+  <table-filter match-name="servicetable"/>
+  <table-filter match-name="outcoming"/>
+  <table-filter match-name="paymentorder"/>
+  <table-filter match-name="incomingtable"/>
+  <table-filter match-name="incoming"/>
+  <table-filter match-name="repricingtable"/>
+  <table-filter match-name="services"/>
+  <table-filter match-name="nomenclature"/>
+  <table-filter match-name="inventory"/>
+</hibernate-reverse-engineering>

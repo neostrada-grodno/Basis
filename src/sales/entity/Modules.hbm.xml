@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25.03.2014 13:42:31 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="sales.entity.Modules" table="modules" catalog="sales">
+        <id name="code" type="java.lang.Integer">
+            <column name="code" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="65535" />
+        </property>
+        <property name="path" type="string">
+            <column name="path" length="65535" />
+        </property>
+        <property name="jar" type="string">
+            <column name="jar" length="65535" />
+        </property>
+        <property name="jarVersion" type="string">
+            <column name="jarVersion" length="65535" />
+        </property>
+        <property name="result" type="string">
+            <column name="result" length="65535" />
+        </property>
+    </class>
+</hibernate-mapping>
